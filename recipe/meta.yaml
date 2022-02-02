@@ -35,7 +35,7 @@ requirements:
     - {{ cdt('libxxf86vm') }}  # [linux]
     - patch       # [not win]
     - m2-patch    # [win]
-   host:
+  host:
     - xorg-libxfixes  # [linux]
     - zlib
     - libpng
