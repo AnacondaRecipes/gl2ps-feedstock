@@ -14,8 +14,7 @@ source:
     - 0001-Disable-static-library-on-Windows.patch
 
 build:
-  number: 0
-  # trigger: 1
+  number: 1
   skip: true  # [win and vc<14]
   run_exports:
     # Hasn't been updated in years so pin tightly
@@ -37,7 +36,6 @@ requirements:
     - patch       # [not win]
     - m2-patch    # [win]
   host:
-    - xorg-libxfixes  # [linux]
     - zlib
     - libpng
 
