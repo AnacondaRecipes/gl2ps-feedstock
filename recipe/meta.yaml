@@ -15,6 +15,7 @@ source:
 
 build:
   number: 0
+  # trigger: 1
   skip: true  # [win and vc<14]
   run_exports:
     # Hasn't been updated in years so pin tightly
