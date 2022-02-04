@@ -17,7 +17,8 @@ source:
 
 build:
   number: 1
-  skip: true  # [win and vc<14]
+  # On s390x cdt('mesa-libgl-devel') is missing
+  skip: true  # [win and vc<14 or s390x]
   run_exports:
     # Hasn't been updated in years so pin tightly
     - {{ pin_subpackage('gl2ps', max_pin='x.x.x') }}
