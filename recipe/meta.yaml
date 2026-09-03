@@ -21,7 +21,7 @@ source:
     - 0001-Disable-static-library-on-Windows.patch
 
 build:
-  number: 1
+  number: 2
   # On s390x cdt('mesa-libgl-devel') is missing
   skip: true  # [win and vc<14 or s390x]
   run_exports:
@@ -30,6 +30,7 @@ build:
 
 requirements:
   build:
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - cmake
     - make  # [unix]
@@ -41,8 +42,6 @@ requirements:
     - {{ cdt('libselinux') }}  # [linux]
     - {{ cdt('libxdamage') }}  # [linux]
     - {{ cdt('libxxf86vm') }}  # [linux]
-    - patch       # [not win]
-    - m2-patch    # [win]
   host:
     - zlib
     - libpng

@@ -7,6 +7,7 @@ cmake ^
     -G "Ninja" ^
     -D CMAKE_PREFIX_PATH="%LIBRARY_PREFIX%" ^
     -D CMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
+    -D CMAKE_POLICY_VERSION_MINIMUM=3.5 ^
     -D CMAKE_BUILD_TYPE=Release ^
     -S source -B build
 if errorlevel 1 exit 1
