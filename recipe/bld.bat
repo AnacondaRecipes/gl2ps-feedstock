@@ -1,5 +1,7 @@
 @echo on
 
+set CMAKE_POLICY_VERSION_MINIMUM=3.5
+
 mkdir build
 if errorlevel 1 exit 1
 
