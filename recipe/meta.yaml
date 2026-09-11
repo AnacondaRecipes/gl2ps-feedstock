@@ -34,13 +34,8 @@ requirements:
     - cmake
     - make  # [unix]
     - ninja  # [win]
-    # Required for OpenGL support
-    # See https://conda-forge.org/docs/maintainer/knowledge_base.html?highlight=cdt#libgl
-    - {{ cdt('mesa-libgl-devel') }}  # [linux]
-    - {{ cdt('mesa-dri-drivers') }}  # [linux]
-    - {{ cdt('libselinux') }}  # [linux]
-    - {{ cdt('libxdamage') }}  # [linux]
-    - {{ cdt('libxxf86vm') }}  # [linux]
+    # OpenGL support headers/libs come from yum_requirements.txt (the
+    # mesa/libX CDTs are not available in the el8 solve).
     - patch       # [not win]
   host:
     - zlib
