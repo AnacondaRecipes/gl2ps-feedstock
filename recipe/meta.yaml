@@ -22,7 +22,7 @@ source:
 
 build:
   number: 2
-  # On s390x cdt('mesa-libgl-devel') is missing
+  # libgl-devel is not available on s390x
   skip: true  # [win and vc<14 or s390x]
   run_exports:
     # Hasn't been updated in years so pin tightly
@@ -35,9 +35,8 @@ requirements:
     - cmake
     - make  # [unix]
     - ninja  # [win]
-    # OpenGL support headers/libs come from yum_requirements.txt (the
-    # mesa/libX CDTs are not available in the el8 solve).
   host:
+    - libgl-devel  # [linux]
     - zlib
     - libpng
 
