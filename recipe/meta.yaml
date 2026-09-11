@@ -30,13 +30,13 @@ build:
 
 requirements:
   build:
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - cmake
     - make  # [unix]
     - ninja  # [win]
     # OpenGL support headers/libs come from yum_requirements.txt (the
     # mesa/libX CDTs are not available in the el8 solve).
-    - patch       # [not win]
   host:
     - zlib
     - libpng
