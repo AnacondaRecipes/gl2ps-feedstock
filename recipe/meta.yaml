@@ -21,8 +21,7 @@ source:
     - 0001-Disable-static-library-on-Windows.patch
 
 build:
-  number: 1
-  # On s390x cdt('mesa-libgl-devel') is missing
+  number: 2
   skip: true  # [win and vc<14 or s390x]
   run_exports:
     # Hasn't been updated in years so pin tightly
@@ -30,22 +29,15 @@ build:
 
 requirements:
   build:
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - cmake
     - make  # [unix]
     - ninja  # [win]
-    # Required for OpenGL support
-    # See https://conda-forge.org/docs/maintainer/knowledge_base.html?highlight=cdt#libgl
-    - {{ cdt('mesa-libgl-devel') }}  # [linux]
-    - {{ cdt('mesa-dri-drivers') }}  # [linux]
-    - {{ cdt('libselinux') }}  # [linux]
-    - {{ cdt('libxdamage') }}  # [linux]
-    - {{ cdt('libxxf86vm') }}  # [linux]
-    - patch       # [not win]
-    - m2-patch    # [win]
   host:
-    - zlib
-    - libpng
+    - libgl-devel {{ libgl }}  # [linux]
+    - zlib {{ zlib }}
+    - libpng {{ libpng }}
 
 test:
   commands:
