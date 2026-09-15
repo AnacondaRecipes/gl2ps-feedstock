@@ -35,9 +35,9 @@ requirements:
     - make  # [unix]
     - ninja  # [win]
   host:
-    - libgl-devel  # [linux]
-    - zlib
-    - libpng
+    - libgl-devel {{ libgl }}  # [linux]
+    - zlib {{ zlib }}
+    - libpng {{ libpng }}
 
 test:
   commands:
